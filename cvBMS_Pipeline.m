@@ -6,7 +6,7 @@
 % 
 % Author: Joram Soch, BCCN Berlin
 % E-Mail: joram.soch@bccn-berlin.de
-% Date  : 15/09/2016, 17:45
+% Date  : 18/05/2017, 17:45
 
 
 %%% Step 0: Study parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,17 +84,20 @@ end;
 %%% Step 2: Second-level model selection %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % prepare SPM batch
-BMS_dir = strcat(stat_dir,'/','model_selection','/',ms_name,'_',int2str(M),'mods','_',int2str(N),'subj','_',ms_suff,'/');
+  BMS_dir = strcat(stat_dir,'/','model_selection','/',ms_name,'_',int2str(M),'mods','_',int2str(N),'subj','_',ms_suff,'/');
+% BMS_dir = strcat(stat_dir,'/','model_selection','/',ms_name,'_',int2str(F),'fams','_',int2str(N),'subj','_',ms_suff,'/');
 clear sess_map
 for i = 1:N                     % all subjects
     clear mod_map
-    for j = 1:M                 % all models
+  % clear fam_map
+    for j = 1:M % F             % all models
         mod_map{j,1} = strcat(work_dir,'/',subj_ids{i},'/',mod_nams{j},'/',LME_map);
       % fam_map{j,1} = strcat(work_dir,'/',subj_ids{i},'/',fam_nams{j},'/','MA_LFE_uniform.nii');
     end;
     sess_map{1,i}.mod_map = mod_map;
   % sess_map{1,i}.mod_map = fam_map;
 end;
+% Note: Uncomment the commented lines, if family inference is required.
 
 % create SPM batch
 matlabbatch{1}.spm.stats.bms_map.inference.dir{1}      = BMS_dir;
