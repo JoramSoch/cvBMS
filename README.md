@@ -1,5 +1,7 @@
 # cvBMS
 
+<b>Note: The cvBMS toolkit is obsolete now. Please consider using the <a href="https://github.com/JoramSoch/MACS">MACS toolbox</a>!</b>
+
 SPM8/12-compatible MATLAB implementation of "Soch et al., NeuroImage, 2016".
 
 Soch et al., 2016: "How to avoid mismodelling in GLM-based fMRI data analysis: cross-validated Bayesian model selection", NeuroImage, vol. 141, pp. 469-489; DOI: 10.1016/j.neuroimage.2016.07.047.
